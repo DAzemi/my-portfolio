@@ -6,7 +6,7 @@ export default function Projects() {
           <div className="relative z-10 max-w-5xl">         
               {/* GitHub Profile Link */}
               <div className="mb-12">
-                <h3 className="text-2xl font-semibold">Check out my GitHub</h3>
+                <h3 className="text-2xl font-semibold">Check out my GitHub profile to see the projects</h3>
                 <a
                   href="https://github.com/DAzemi" // Replace with your GitHub username
                   target="_blank"
