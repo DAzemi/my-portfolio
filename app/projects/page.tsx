@@ -2,26 +2,26 @@ import Image from "next/image";
 
 export default function Projects() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-black opacity-20"></div>
-      <div className="relative z-10 max-w-5xl w-full">         
-        
-        {/* GitHub Profile Link */}
-        <div className="mb-10">
-          <h3 className="text-xl sm:text-2xl font-semibold mt-16">
-            Check out my GitHub profile to see the projects
-          </h3>
+    <section className="relative flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white px-4 sm:px-6">
+    <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div className="relative z-10 w-full max-w-6xl pt-32 pb-16">
+
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-md">
+            Explore My Projects
+          </h2>
+          <p className="text-lg sm:text-xl opacity-90 mb-4">
+            Visit my GitHub to see detailed code and more projects.
+          </p>
           <a
             href="https://github.com/DAzemi"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block py-2.5 sm:py-3 px-5 sm:px-6 mt-4 text-white bg-indigo-600 rounded-lg text-lg sm:text-xl hover:bg-indigo-700 transition duration-300"
+            className="inline-block py-3 px-6 bg-indigo-600 text-white rounded-lg text-lg font-semibold hover:bg-indigo-700 transition"
           >
-            GitHub Profile
+            View GitHub Profile
           </a>
         </div>
-
-        {/* Project Images Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {[...Array(4)].map((_, index) => (
             <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">

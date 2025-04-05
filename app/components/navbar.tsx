@@ -8,39 +8,34 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white p-4 fixed w-full top-0 z-10 shadow-lg">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        
-        {/* Logo or Title */}
-        <Link href="/" className="text-xl font-bold">
-          MyPortfolio
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900 text-white shadow-md">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="text-2xl font-bold tracking-tight hover:text-gray-300 transition">
+          Dren's Portofolio
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6">
-          <Link href="/" className="hover:text-gray-400">Home</Link>
-          <Link href="/about" className="hover:text-gray-400">About Me</Link>
-          <Link href="/projects" className="hover:text-gray-400">Projects</Link>
-          <Link href="/contact" className="hover:text-gray-400">Contact Me</Link>
+        <div className="hidden md:flex items-center space-x-8">
+          <Link href="/" className="hover:text-gray-300 transition">Home</Link>
+          <Link href="/about" className="hover:text-gray-300 transition">About Me</Link>
+          <Link href="/projects" className="hover:text-gray-300 transition">Projects</Link>
+          <Link href="/contact" className="hover:text-gray-300 transition">Contact</Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
+        <button
+          onClick={() => setIsOpen(!isOpen)}
           className="md:hidden focus:outline-none"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden flex flex-col gap-4 bg-gray-900 text-center py-4">
-          <Link href="/" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link href="/about" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>About Me</Link>
-          <Link href="/projects" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Projects</Link>
-          <Link href="/contact" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Contact Me</Link>
+        <div className="md:hidden flex flex-col items-center bg-gray-900 py-4 space-y-4 transition-all duration-300">
+          <Link href="/" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link href="/about" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>About Me</Link>
+          <Link href="/projects" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>Projects</Link>
+          <Link href="/contact" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>Contact</Link>
         </div>
       )}
     </nav>
