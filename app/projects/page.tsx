@@ -1,46 +1,60 @@
+'use client';
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section className="relative flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white px-4 sm:px-6">
-    <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-      <div className="relative z-10 w-full max-w-6xl pt-32 pb-16">
+    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div className="relative z-10 max-w-6xl w-full pt-24 pb-12">
 
-        <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-md">
-            Explore My Projects
-          </h2>
-          <p className="text-lg sm:text-xl opacity-90 mb-4">
-            Visit my GitHub to see detailed code and more projects.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">My Projects</h1>
+          <p className="text-lg sm:text-xl opacity-90">
+            Explore some of the projects I’ve worked on and check out my GitHub for more.
           </p>
           <a
             href="https://github.com/DAzemi"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block py-3 px-6 bg-indigo-600 text-white rounded-lg text-lg font-semibold hover:bg-indigo-700 transition"
+            className="inline-block mt-6 py-3 px-6 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition"
           >
-            View GitHub Profile
+            Visit My GitHub
           </a>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8"
+        >
           {[...Array(4)].map((_, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="group relative overflow-hidden rounded-xl shadow-lg bg-white text-black"
+            >
               <Image
                 src={`/project-${index + 1}.jpeg`}
                 alt={`Project ${index + 1}`}
-                className="w-full h-auto aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
-                width={300}
-                height={225}
+                className="w-full h-auto aspect-video object-cover"
+                width={400}
+                height={300}
               />
-              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white text-base sm:text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Project {index + 1}
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                <p className="text-white font-bold text-lg">Project {index + 1}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );
-};
+}
