@@ -18,15 +18,21 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
-          {["Home", "About Me", "Projects", "Contact", "Experience"].map((text, idx) => (
-            <Link
-              key={idx}
-              href={text === "Home" ? "/" : `/${text.toLowerCase().replace(" ", "")}`}
-              className="hover:text-gray-300 transition"
-            >
-              {text}
-            </Link>
-          ))}
+          {["Home", "About Me", "Projects", "Contact", "Experience"].map(
+            (text, idx) => (
+              <Link
+                key={idx}
+                href={
+                  text === "Home"
+                    ? "/"
+                    : `/${text.toLowerCase().replace(" ", "")}`
+                }
+                className="hover:text-gray-300 transition"
+              >
+                {text}
+              </Link>
+            )
+          )}
         </div>
 
         <button
@@ -40,16 +46,22 @@ const Navbar = () => {
 
       {isOpen && (
         <div className="md:hidden flex flex-col items-center bg-gray-900 py-4 space-y-4 transition-all duration-300">
-          {["Home", "About Me", "Projects", "Contact", "Experience"].map((text, idx) => (
-            <Link
-              key={idx}
-              href={text === "Home" ? "/" : `/${text.toLowerCase().replace(" ", "")}`}
-              className="hover:text-gray-300"
-              onClick={() => setIsOpen(false)}
-            >
-              {text}
-            </Link>
-          ))}
+          {["Home", "About Me", "Projects", "Contact", "Experience"].map(
+            (text, idx) => (
+              <Link
+                key={idx}
+                href={
+                  text === "Home"
+                    ? "/"
+                    : `/${text.toLowerCase().replace(" ", "")}`
+                }
+                className="hover:text-gray-300"
+                onClick={() => setIsOpen(false)}
+              >
+                {text}
+              </Link>
+            )
+          )}
         </div>
       )}
     </nav>

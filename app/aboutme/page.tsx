@@ -2,12 +2,19 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function About() {
+  const [isTextVisible, setIsTextVisible] = useState(false);
+
+  const handleToggleText = () => {
+    setIsTextVisible(!isTextVisible);
+  };
+
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-12 text-center">
+    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-sky-200 to-indigo-300 text-white px-6 py-12 text-center">
       <div className="absolute inset-0 bg-black opacity-25"></div>
-      
+
       <div className="relative z-10 max-w-4xl w-full">
         <motion.header
           className="mb-10"
@@ -16,7 +23,9 @@ export default function About() {
           transition={{ duration: 0.7 }}
         >
           <h1 className="text-4xl font-extrabold mb-2 mt-12">About Me</h1>
-          <p className="text-lg opacity-90">Learn more about my journey and skills</p>
+          <p className="text-lg opacity-90">
+            Learn more about my journey and skills
+          </p>
         </motion.header>
 
         <motion.div
@@ -34,12 +43,18 @@ export default function About() {
           />
 
           <div>
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Hi, I'm Dren Azemi</h2>
-            <p className="text-lg leading-relaxed">
-              I'm a recent graduate in Computer Science and Engineering with a strong passion
-              for web development and modern technologies. My expertise includes building fast,
-              scalable, and secure applications using technologies like React, Next.js, Node.js,
-              and MySQL.
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-4 p-4 border-2 border-white bg-indigo-400 rounded-lg hover:bg-indigo-700 transition duration-300">
+              Hi, I'm Dren Azemi
+            </h2>
+            <p
+              className={`text-lg leading-relaxed p-4 border-2 border-white bg-indigo-400 rounded-lg hover:bg-indigo-700 transition duration-300 
+                ${!isTextVisible && "hidden"} md:block`}
+            >
+              I'm a recent graduate in Computer Science and Engineering with a
+              strong passion for web development and modern technologies. My
+              expertise includes building fast, scalable, and secure
+              applications using technologies like React, Next.js, Node.js, and
+              MySQL.
             </p>
           </div>
         </motion.div>
@@ -50,12 +65,29 @@ export default function About() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.4 }}
         >
-          <h3 className="text-xl sm:text-2xl font-semibold mb-4">Skills</h3>
-          <ul className="space-y-2 text-lg pl-5 list-disc">
+          <ul
+            className={`space-y-2 text-lg pl-5 list-disc p-4 border-2 border-white bg-indigo-400 rounded-lg hover:bg-indigo-700 transition duration-300 
+              ${!isTextVisible && "hidden"} md:block`}
+          >
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4">Skills</h3>
             <li>🌐 Web Development: React, Next.js, Tailwind CSS</li>
             <li>🗃️ Backend: Node.js, Express, GraphQL, MySQL</li>
             <li>🔐 Security: JWT, OAuth, Authentication best practices</li>
           </ul>
+        </motion.div>
+
+        <motion.div
+          className="mt-4 md:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          <button
+            onClick={handleToggleText}
+            className="inline-block py-2 px-6 text-white bg-indigo-400 rounded-lg text-lg sm:text-xl hover:bg-indigo-700 transition duration-300"
+          >
+            {isTextVisible ? "Hide Details" : "Show Details"}
+          </button>
         </motion.div>
 
         <motion.div
@@ -66,7 +98,7 @@ export default function About() {
         >
           <a
             href="/contact"
-            className="inline-block py-3 px-6 text-white bg-indigo-600 rounded-lg text-lg sm:text-xl hover:bg-indigo-700 transition duration-300"
+            className="inline-block py-3 px-6 text-white bg-indigo-400 rounded-lg text-lg sm:text-xl hover:bg-indigo-700 transition duration-300"
           >
             Contact Me
           </a>

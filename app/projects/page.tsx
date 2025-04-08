@@ -1,23 +1,25 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center px-4 sm:px-6 lg:px-8">
+    <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-sky-200 to-indigo-300 text-gray-900 text-white text-center px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-black opacity-20"></div>
       <div className="relative z-10 max-w-6xl w-full pt-24 pb-12">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">My Projects</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
+            My Projects
+          </h1>
           <p className="text-lg sm:text-xl opacity-90">
-            Explore some of the projects I’ve worked on and check out my GitHub for more.
+            Explore some of the projects I’ve worked on and check out my GitHub
+            for more.
           </p>
           <a
             href="https://github.com/DAzemi"
@@ -49,7 +51,9 @@ export default function Projects() {
                 height={300}
               />
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <p className="text-white font-bold text-lg">Project {index + 1}</p>
+                <p className="text-white font-bold text-lg">
+                  Project {index + 1}
+                </p>
               </div>
             </motion.div>
           ))}
